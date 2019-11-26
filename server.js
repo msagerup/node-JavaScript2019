@@ -23,17 +23,17 @@ const fs = require('fs');
 // Middleware
 
 app.use(bodyParser.json());
-// app.use((req,res,next) => {
-//     console.log('Recieved new request')
-//     next()
-// })
+app.use((req,res,next) => {
+    console.log('Recieved new request')
+    next()
+})
 
 ///////
 // Rutes
 
 const rutes = require('./routes/rutes')(app, fs);
 
-const port = 3000;
+const port = 3002;
 
 app.listen(port, () => {
     console.log(`Server listening to port: ${port}`);

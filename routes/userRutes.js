@@ -3,7 +3,7 @@ const userRutes = (app, fs) => {
 
     // Get all users
 
-    app.get('/users/:id', (req, res) => {
+    app.get('/user/:id', (req, res) => {
         fs.readFile(dataSetPath, (err, data) => {
             // Catch if there was an error with getting
             if (err) {
@@ -19,19 +19,16 @@ const userRutes = (app, fs) => {
                 res.send({
                     error: 'There are no users'
                 });
+                
             }
         
             // Used to store value of forEach search
             let sendUser;
             // Search data obj for user,  return user
             dataObj.forEach(function(user) {
-                if (user.id == userInput) {
+                if (userInput === user.id) {
                     sendUser = user;
-                } else {
-                    sendUser = {
-                        error: `No user with user id: ${userInput}`
-                    }
-                }
+                } 
             });
             // Return user
             res.send(sendUser);
