@@ -1,7 +1,7 @@
 const getUser = (app,fs) => {
 
     const dataSetPath = './routes/users.json';
-    app.get('/user/:id', (req,res) => {
+    app.get('/user', (req,res) => {
         fs.readFile(dataSetPath, (err, data) => {
             if (err) {
                 throw new Error('Could not find file');
