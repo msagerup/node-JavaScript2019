@@ -33,7 +33,7 @@ app.use((req,res,next) => {
 
 const rutes = require('./routes/rutes')(app, fs);
 
-const port = 3002;
+const port = 3000;
 
 app.listen(port, () => {
     console.log(`Server listening to port: ${port}`);
